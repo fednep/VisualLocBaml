@@ -1,0 +1,159 @@
+﻿<Page x:Class="MainProject.UI.p_DocumentMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:l="clr-namespace:MainProject"
+      xmlns:ui="clr-namespace:MainProject.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="p_DocumentMenu">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/Mahapps.Scrollbars.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type l:MetroButton}" x:Key="MenuButton">
+                <Setter Property="Background" Value="#75887B" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Width" Value="140" />
+                <Setter Property="Height" Value="40" />
+                <Setter Property="FontWeight" Value="400" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="3" />
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#FFA800" />
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Cursor" Value="Arrow" />
+                        <Setter Property="Foreground" Value="white"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="MenuAssemblyButton" BasedOn="{StaticResource MenuButton}" TargetType="{x:Type l:MetroButton}">
+                <Setter Property="Background" Value="#558869" />
+                <Setter Property="Height" Value="33" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="0,2,0,1" />
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="Padding" Value="10,0,5,0"/>
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#FFA800" />
+                        <Setter Property="Cursor" Value="Arrow"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+
+    </Page.Resources>
+    <Grid>
+        <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="True">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="1" Name="DocumentPageFrame" Source="DocumentPages/Home.xaml" NavigationUIVisibility="Hidden">
+
+                </Frame>
+                <StackPanel Margin="20,20,10,20" Background="White">
+                    <l:MetroButton Click="NavigateHome">
+                        <l:MetroButton.Style>
+                            <Style BasedOn="{StaticResource MenuButton}" TargetType="{x:Type l:MetroButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentPageTag}" Value="home">
+                                        <Setter Property="IsSelected" Value="True"/>
+                                    </DataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsSelectedMenuEnabled}" Value="False" />
+                                            <Condition Binding="{Binding CurrentPageTag}" Value="home" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </l:MetroButton.Style>
+                        Assemblies
+                    </l:MetroButton>
+
+                    <l:MetroButton Click="NavigateLanguages">
+                        <l:MetroButton.Style>
+                            <Style BasedOn="{StaticResource MenuButton}" TargetType="{x:Type l:MetroButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentPageTag}" Value="languages">
+                                        <Setter Property="IsSelected" Value="True"/>
+                                    </DataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsSelectedMenuEnabled}" Value="False" />
+                                            <Condition Binding="{Binding CurrentPageTag}" Value="languages" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </l:MetroButton.Style>
+                        Translations
+                    </l:MetroButton>
+                    <l:MetroButton Click="NavigateSettings">
+                        <l:MetroButton.Style>
+                            <Style BasedOn="{StaticResource MenuButton}" TargetType="{x:Type l:MetroButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentPageTag}" Value="settings">
+                                        <Setter Property="IsSelected" Value="True"/>
+                                    </DataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsSelectedMenuEnabled}" Value="False" />
+                                            <Condition Binding="{Binding CurrentPageTag}" Value="settings" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </l:MetroButton.Style>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="../res/SettingsWhite.png" VerticalAlignment="Center" Margin="10,5,5,5" Width="14"/>
+                            <TextBlock VerticalAlignment="Center" Margin="5,5,10,5" FontSize="14"><Run Text="Settings"/></TextBlock>
+                        </StackPanel>
+                    </l:MetroButton>
+
+                    <!-- 
+                    <TextBlock FontSize="16" Margin="10,10,0,5" FontWeight="Medium" Foreground="#999999">assemblies:</TextBlock>
+                    <ItemsControl ItemsSource="{Binding Document.Assemblies}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <l:MetroButton Style="{StaticResource MenuAssemblyButton}">
+                                    <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Document.AssemblyName, Converter={StaticResource FileNameFromPathConverter}}">
+                                    </TextBlock>
+                                </l:MetroButton>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    -->
+                </StackPanel>
+
+                
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

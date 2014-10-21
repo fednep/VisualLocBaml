@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    
+    <s:String x:Key="UnknownLanguage">Unknown language</s:String>
+    <s:String x:Key="UnknownCountry">Unknown country</s:String>
+
+    <s:String x:Key="OpenSave_Filter">TranslationSuite files (*.tsf)|*.tsf</s:String>
+
+    <s:String x:Key="MB_CloseCurrentProject">Do you want to close current project?</s:String>
+    <s:String x:Key="MB_CloseCurrentProject_Caption">Do you want to close current project?</s:String>
+
+    <s:String x:Key="MB_CloseSaveQuestion">Do you want to save your unsaved project?</s:String>
+    <s:String x:Key="MB_CloseSaveQuestion_Caption">Save Unsaved Changes</s:String>
+
+    <s:String x:Key="MB_ErrorSavingFile1" xml:space="preserve">There following error occured while saving file:
+{0}</s:String>
+    <s:String x:Key="MB_ErrorSavingFile_Caption">Error Saving File</s:String>
+    <s:String x:Key="CultureUnknown">Unknown</s:String>
+    <s:String x:Key="MB_ErrorOpeningLink1" xml:space="preserve">Error opening browser at:
+{0}
+        
+Please open it manually. Link above was copied to the clipboard.</s:String>
+    <s:String x:Key="LocalizationGuideURL">http://wpflocalizer.com/guide/localizableassemblies</s:String>
+
+    <s:String x:Key="RecentProjectNotFound_Caption" xml:space="preserve">Project Not Found</s:String>
+    <s:String x:Key="RecentProjectNotFound" xml:space="preserve">Project file not found.
+Do you want to remove this project from "Recent projects" menu?</s:String>
+    
+    <s:String x:Key="ImportingFromAssembly_0">Importing strings from {0}</s:String>
+    <s:String x:Key="LoadingAssembly_0">Loading assembly {0}...</s:String>
+    <s:String x:Key="Import_Finishing">Finishing</s:String>
+
+    <s:String x:Key="CultureFullDescription">{0}, {1} ({2})</s:String>
+    <s:String x:Key="CultureNeutral_FullDescription">{0} ({1})</s:String>
+    
+    <s:String x:Key="SearchingForAssemblies">Searching for assemblies...</s:String>
+
+    <s:String x:Key="ExportingStrings">Exporting strings for culture {0} into file {1}</s:String>
+    <s:String x:Key="ImportStringsTranslation">Importing translation for culture {0} from file {1}</s:String>
+
+    <s:String x:Key="ImportTranslationLogOriginalStringChanged">Original string was changed after strings export.</s:String>
+    <s:String x:Key="ImportTranslationLogStringNotFound">Original string not found or was deleted.</s:String>
+    <s:String x:Key="ImportTranslationTranslationIsTheSame">Translation is the same</s:String>
+    
+    <s:String x:Key="ImportTranslationLogIssue">{0} Import Issues</s:String>
+    <s:String x:Key="ImportTranslationLogEntry" xml:space="preserve">
+Issue: {0}
+String ID: "{1}"
+Original: "{2}"
+Original in file: "{3}"
+Translation: "{4}"
+---------------------------------------------------        
+</s:String>
+
+    <s:String x:Key="GenerationAssemblyForCulture">Generating resource assembly {0} for culture {1}</s:String>
+
+    <s:String x:Key="AssemblyResult_Created">Created</s:String>
+    <s:String x:Key="AssemblyResult_Cancelled">Cancelled</s:String>
+    <s:String x:Key="AssemblyResult_Exception">Error</s:String>
+    
+    <s:String x:Key="MB_RemoveLanguage">Do you want to remove language {0} from translation?</s:String>
+
+    <s:String x:Key="MB_CultureSameAsNeutral">Cannot add selected culture because it is the same as the neutral culture for assemblies.</s:String>
+
+    <s:String x:Key="TranslationFileFilter">Translation strings file (*.csv)|*.csv</s:String>
+
+    <s:String x:Key="Progress_RetrievingTranslation">Retrieving Translation...</s:String>
+
+    <s:String x:Key="Progress_RetrievingAssemblyTranslation">Retrieving translation from {0}</s:String>
+
+    <s:String x:Key="PathNotFound_Caption">Path not found</s:String>
+    <s:String x:Key="PathNotFound">The path you entered doesn't exists. Please select correct one.</s:String>
+    <s:String x:Key="Neutral">Neutral</s:String>
+</ResourceDictionary>

@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{684CD55D-8737-40C1-8664-F1BDA67B98F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MainProject</RootNamespace>
+    <AssemblyName>VisualBaml</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bird.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=0.12.1.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MahApps.Metro.0.12.1.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Controls" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.92.0\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.92.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.92.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.0.12.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AsyncCall.cs" />
+    <Compile Include="AvailableAsseblyForTranslation.cs" />
+    <Compile Include="CultureParser.cs" />
+    <Compile Include="StringsRetriever.cs" />
+    <Compile Include="UI\AvailableAssembliesCollection.cs" />
+    <Compile Include="UI\CultureToTextConverter.cs" />
+    <Compile Include="UI\CultureToFlagConverter.cs" />
+    <Compile Include="LongTask.cs" />
+    <Compile Include="UI\DocumentPages\AssemblyItem.cs" />
+    <Compile Include="UI\DocumentPages\CultureItem.cs" />
+    <Compile Include="UI\DocumentPages\FileToImport.cs" />
+    <Compile Include="UI\DocumentPages\pp_GenerateAssembliesResult.xaml.cs">
+      <DependentUpon>pp_GenerateAssembliesResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_GenerateAssemblies.xaml.cs">
+      <DependentUpon>pp_GenerateAssemblies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_Settings.xaml.cs">
+      <DependentUpon>pp_Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_LanguagesExportResult.xaml.cs">
+      <DependentUpon>pp_LanguagesExportResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_ImportTranslationResult.xaml.cs">
+      <DependentUpon>pp_ImportTranslationResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_LanguagesImport.xaml.cs">
+      <DependentUpon>pp_LanguagesImport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_LanguagesExport.xaml.cs">
+      <DependentUpon>pp_LanguagesExport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\p_Translation.xaml.cs">
+      <DependentUpon>p_Translation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\TranslationBamlConverter.cs" />
+    <Compile Include="UI\DocumentPages\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LogViewer.xaml.cs">
+      <DependentUpon>LogViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NavigationAnimation.cs" />
+    <Compile Include="UI\DocumentPages\pp_ImportResult.xaml.cs">
+      <DependentUpon>pp_ImportResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_Languages.xaml.cs">
+      <DependentUpon>pp_Languages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\pp_NewLanguage.xaml.cs">
+      <DependentUpon>pp_NewLanguage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocumentPages\ProgressPercentageReporter.cs" />
+    <Compile Include="UI\FlagControl.xaml.cs">
+      <DependentUpon>FlagControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HeaderControl.xaml.cs">
+      <DependentUpon>HeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecentProject.cs" />
+    <Compile Include="RecentProjectMore.cs" />
+    <Compile Include="RecentProjects.cs" />
+    <Compile Include="UI\DocumentPages\home.xaml.cs">
+      <DependentUpon>home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileNameFromPathConverter.cs" />
+    <Compile Include="LanguageCountry.cs" />
+    <Compile Include="UI\MetroButton.cs" />
+    <Compile Include="UI\MainLanguageControl.xaml.cs">
+      <DependentUpon>MainLanguageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NavigationStackItem.cs" />
+    <Compile Include="UI\PageProperties.cs" />
+    <Compile Include="UI\p_AssembliesNotFound.xaml.cs">
+      <DependentUpon>p_AssembliesNotFound.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_Document.xaml.cs">
+      <DependentUpon>p_Document.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_DocumentMenu.xaml.cs">
+      <DependentUpon>p_DocumentMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_EmptyProject.xaml.cs">
+      <DependentUpon>p_EmptyProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_Expired.xaml.cs">
+      <DependentUpon>p_Expired.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_Progress.xaml.cs">
+      <DependentUpon>p_Progress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_SetupPathAndAssemblies.xaml.cs">
+      <DependentUpon>p_SetupPathAndAssemblies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\p_StartPage.xaml.cs">
+      <DependentUpon>p_StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\AvailableAssemblies\AvailableAssemblies.xaml.cs">
+      <DependentUpon>AvailableAssemblies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\Document\Document.xaml.cs">
+      <DependentUpon>Document.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StringUtils.cs" />
+    <Compile Include="TranslatedAssembly.cs" />
+    <Compile Include="UI\FormatNumberConverter.cs" />
+    <Compile Include="AssembliesCollection.cs" />
+    <Compile Include="UI\RoundButton.cs" />
+    <Compile Include="UrlHelper.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Culture.cs" />
+    <Compile Include="UI\LanguageControl.xaml.cs">
+      <DependentUpon>LanguageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="res\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TopMenu.xaml.cs">
+      <DependentUpon>TopMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs" />
+    <Compile Include="TranslationCollection.cs" />
+    <Page Include="Themes\Mahapps.Scrollbars.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_GenerateAssembliesResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_GenerateAssemblies.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_LanguagesExportResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_ImportTranslationResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_ImportResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_Languages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_LanguagesImport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_LanguagesExport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\pp_NewLanguage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\p_Translation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\UserControl1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\FlagControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\HeaderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DocumentPages\home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LogViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainLanguageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\LanguageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\p_AssembliesNotFound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\p_Document.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\p_DocumentMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\p_EmptyProject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\p_Expired.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\p_Progress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\p_SetupPathAndAssemblies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\p_StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignTimeOnly Include="SampleData\Document\Document.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignTimeOnly>
+    <DesignTimeOnly Include="SampleData\AvailableAssemblies\AvailableAssemblies.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignTimeOnly>
+    <Page Include="Strings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\TopMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="res\cultures.csv" />
+    <DesignTimeOnly Include="SampleData\Document\Document.xsd" />
+    <DesignTimeOnly Include="SampleData\AvailableAssemblies\AvailableAssemblies.xsd" />
+    <Resource Include="UI\DocumentPages\Image1.png" />
+    <Resource Include="UI\DocumentPages\Image2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\SettingsWhite.png" />
+    <Resource Include="res\folder.png" />
+    <Resource Include="res\flags\16\ad.png" />
+    <Resource Include="res\flags\16\ae.png" />
+    <Resource Include="res\flags\16\af.png" />
+    <Resource Include="res\flags\16\ag.png" />
+    <Resource Include="res\flags\16\ai.png" />
+    <Resource Include="res\flags\16\al.png" />
+    <Resource Include="res\flags\16\am.png" />
+    <Resource Include="res\flags\16\an.png" />
+    <Resource Include="res\flags\16\ao.png" />
+    <Resource Include="res\flags\16\aq.png" />
+    <Resource Include="res\flags\16\ar.png" />
+    <Resource Include="res\flags\16\as.png" />
+    <Resource Include="res\flags\16\at.png" />
+    <Resource Include="res\flags\16\au.png" />
+    <Resource Include="res\flags\16\aw.png" />
+    <Resource Include="res\flags\16\az.png" />
+    <Resource Include="res\flags\16\ba.png" />
+    <Resource Include="res\flags\16\bb.png" />
+    <Resource Include="res\flags\16\bd.png" />
+    <Resource Include="res\flags\16\be.png" />
+    <Resource Include="res\flags\16\bf.png" />
+    <Resource Include="res\flags\16\bg.png" />
+    <Resource Include="res\flags\16\bh.png" />
+    <Resource Include="res\flags\16\bi.png" />
+    <Resource Include="res\flags\16\bj.png" />
+    <Resource Include="res\flags\16\bm.png" />
+    <Resource Include="res\flags\16\bn.png" />
+    <Resource Include="res\flags\16\bo.png" />
+    <Resource Include="res\flags\16\br.png" />
+    <Resource Include="res\flags\16\bs.png" />
+    <Resource Include="res\flags\16\bt.png" />
+    <Resource Include="res\flags\16\bw.png" />
+    <Resource Include="res\flags\16\by.png" />
+    <Resource Include="res\flags\16\bz.png" />
+    <Resource Include="res\flags\16\ca.png" />
+    <Resource Include="res\flags\16\cd.png" />
+    <Resource Include="res\flags\16\cf.png" />
+    <Resource Include="res\flags\16\cg.png" />
+    <Resource Include="res\flags\16\ch.png" />
+    <Resource Include="res\flags\16\chs.png" />
+    <Resource Include="res\flags\16\cht.png" />
+    <Resource Include="res\flags\16\ci.png" />
+    <Resource Include="res\flags\16\ck.png" />
+    <Resource Include="res\flags\16\cl.png" />
+    <Resource Include="res\flags\16\cm.png" />
+    <Resource Include="res\flags\16\cn.png" />
+    <Resource Include="res\flags\16\co.png" />
+    <Resource Include="res\flags\16\cr.png" />
+    <Resource Include="res\flags\16\cu.png" />
+    <Resource Include="res\flags\16\cv.png" />
+    <Resource Include="res\flags\16\cy.png" />
+    <Resource Include="res\flags\16\cz.png" />
+    <Resource Include="res\flags\16\de.png" />
+    <Resource Include="res\flags\16\dj.png" />
+    <Resource Include="res\flags\16\dk.png" />
+    <Resource Include="res\flags\16\dm.png" />
+    <Resource Include="res\flags\16\do.png" />
+    <Resource Include="res\flags\16\dz.png" />
+    <Resource Include="res\flags\16\ec.png" />
+    <Resource Include="res\flags\16\ee.png" />
+    <Resource Include="res\flags\16\eg.png" />
+    <Resource Include="res\flags\16\eh.png" />
+    <Resource Include="res\flags\16\er.png" />
+    <Resource Include="res\flags\16\es.png" />
+    <Resource Include="res\flags\16\et.png" />
+    <Resource Include="res\flags\16\fi.png" />
+    <Resource Include="res\flags\16\fj.png" />
+    <Resource Include="res\flags\16\fm.png" />
+    <Resource Include="res\flags\16\fo.png" />
+    <Resource Include="res\flags\16\fr.png" />
+    <Resource Include="res\flags\16\ga.png" />
+    <Resource Include="res\flags\16\gb.png" />
+    <Resource Include="res\flags\16\gd.png" />
+    <Resource Include="res\flags\16\ge.png" />
+    <Resource Include="res\flags\16\gg.png" />
+    <Resource Include="res\flags\16\gh.png" />
+    <Resource Include="res\flags\16\gi.png" />
+    <Resource Include="res\flags\16\gl.png" />
+    <Resource Include="res\flags\16\gm.png" />
+    <Resource Include="res\flags\16\gn.png" />
+    <Resource Include="res\flags\16\gp.png" />
+    <Resource Include="res\flags\16\gq.png" />
+    <Resource Include="res\flags\16\gr.png" />
+    <Resource Include="res\flags\16\gt.png" />
+    <Resource Include="res\flags\16\gu.png" />
+    <Resource Include="res\flags\16\gw.png" />
+    <Resource Include="res\flags\16\gy.png" />
+    <Resource Include="res\flags\16\hk.png" />
+    <Resource Include="res\flags\16\hn.png" />
+    <Resource Include="res\flags\16\hr.png" />
+    <Resource Include="res\flags\16\ht.png" />
+    <Resource Include="res\flags\16\hu.png" />
+    <Resource Include="res\flags\16\id.png" />
+    <Resource Include="res\flags\16\ie.png" />
+    <Resource Include="res\flags\16\il.png" />
+    <Resource Include="res\flags\16\im.png" />
+    <Resource Include="res\flags\16\in.png" />
+    <Resource Include="res\flags\16\iq.png" />
+    <Resource Include="res\flags\16\ir.png" />
+    <Resource Include="res\flags\16\is.png" />
+    <Resource Include="res\flags\16\it.png" />
+    <Resource Include="res\flags\16\je.png" />
+    <Resource Include="res\flags\16\jm.png" />
+    <Resource Include="res\flags\16\jo.png" />
+    <Resource Include="res\flags\16\jp.png" />
+    <Resource Include="res\flags\16\ke.png" />
+    <Resource Include="res\flags\16\kg.png" />
+    <Resource Include="res\flags\16\kh.png" />
+    <Resource Include="res\flags\16\ki.png" />
+    <Resource Include="res\flags\16\km.png" />
+    <Resource Include="res\flags\16\kn.png" />
+    <Resource Include="res\flags\16\kp.png" />
+    <Resource Include="res\flags\16\kr.png" />
+    <Resource Include="res\flags\16\kw.png" />
+    <Resource Include="res\flags\16\ky.png" />
+    <Resource Include="res\flags\16\kz.png" />
+    <Resource Include="res\flags\16\la.png" />
+    <Resource Include="res\flags\16\lb.png" />
+    <Resource Include="res\flags\16\lc.png" />
+    <Resource Include="res\flags\16\li.png" />
+    <Resource Include="res\flags\16\lk.png" />
+    <Resource Include="res\flags\16\lr.png" />
+    <Resource Include="res\flags\16\ls.png" />
+    <Resource Include="res\flags\16\lt.png" />
+    <Resource Include="res\flags\16\lu.png" />
+    <Resource Include="res\flags\16\lv.png" />
+    <Resource Include="res\flags\16\ly.png" />
+    <Resource Include="res\flags\16\ma.png" />
+    <Resource Include="res\flags\16\mc.png" />
+    <Resource Include="res\flags\16\md.png" />
+    <Resource Include="res\flags\16\me.png" />
+    <Resource Include="res\flags\16\mg.png" />
+    <Resource Include="res\flags\16\mh.png" />
+    <Resource Include="res\flags\16\mk.png" />
+    <Resource Include="res\flags\16\ml.png" />
+    <Resource Include="res\flags\16\mm.png" />
+    <Resource Include="res\flags\16\mn.png" />
+    <Resource Include="res\flags\16\mo.png" />
+    <Resource Include="res\flags\16\mq.png" />
+    <Resource Include="res\flags\16\mr.png" />
+    <Resource Include="res\flags\16\ms.png" />
+    <Resource Include="res\flags\16\mt.png" />
+    <Resource Include="res\flags\16\mu.png" />
+    <Resource Include="res\flags\16\mv.png" />
+    <Resource Include="res\flags\16\mw.png" />
+    <Resource Include="res\flags\16\mx.png" />
+    <Resource Include="res\flags\16\my.png" />
+    <Resource Include="res\flags\16\mz.png" />
+    <Resource Include="res\flags\16\na.png" />
+    <Resource Include="res\flags\16\nc.png" />
+    <Resource Include="res\flags\16\ne.png" />
+    <Resource Include="res\flags\16\ng.png" />
+    <Resource Include="res\flags\16\ni.png" />
+    <Resource Include="res\flags\16\nl.png" />
+    <Resource Include="res\flags\16\no.png" />
+    <Resource Include="res\flags\16\np.png" />
+    <Resource Include="res\flags\16\nr.png" />
+    <Resource Include="res\flags\16\nz.png" />
+    <Resource Include="res\flags\16\om.png" />
+    <Resource Include="res\flags\16\pa.png" />
+    <Resource Include="res\flags\16\pe.png" />
+    <Resource Include="res\flags\16\pf.png" />
+    <Resource Include="res\flags\16\pg.png" />
+    <Resource Include="res\flags\16\ph.png" />
+    <Resource Include="res\flags\16\pk.png" />
+    <Resource Include="res\flags\16\pl.png" />
+    <Resource Include="res\flags\16\pr.png" />
+    <Resource Include="res\flags\16\ps.png" />
+    <Resource Include="res\flags\16\pt.png" />
+    <Resource Include="res\flags\16\pw.png" />
+    <Resource Include="res\flags\16\py.png" />
+    <Resource Include="res\flags\16\qa.png" />
+    <Resource Include="res\flags\16\re.png" />
+    <Resource Include="res\flags\16\ro.png" />
+    <Resource Include="res\flags\16\rs.png" />
+    <Resource Include="res\flags\16\ru.png" />
+    <Resource Include="res\flags\16\rw.png" />
+    <Resource Include="res\flags\16\sa.png" />
+    <Resource Include="res\flags\16\sb.png" />
+    <Resource Include="res\flags\16\sc.png" />
+    <Resource Include="res\flags\16\sd.png" />
+    <Resource Include="res\flags\16\se.png" />
+    <Resource Include="res\flags\16\sg.png" />
+    <Resource Include="res\flags\16\si.png" />
+    <Resource Include="res\flags\16\sk.png" />
+    <Resource Include="res\flags\16\sl.png" />
+    <Resource Include="res\flags\16\sm.png" />
+    <Resource Include="res\flags\16\sn.png" />
+    <Resource Include="res\flags\16\so.png" />
+    <Resource Include="res\flags\16\sr.png" />
+    <Resource Include="res\flags\16\st.png" />
+    <Resource Include="res\flags\16\sv.png" />
+    <Resource Include="res\flags\16\sy.png" />
+    <Resource Include="res\flags\16\sz.png" />
+    <Resource Include="res\flags\16\tc.png" />
+    <Resource Include="res\flags\16\td.png" />
+    <Resource Include="res\flags\16\tg.png" />
+    <Resource Include="res\flags\16\th.png" />
+    <Resource Include="res\flags\16\tj.png" />
+    <Resource Include="res\flags\16\tl.png" />
+    <Resource Include="res\flags\16\tm.png" />
+    <Resource Include="res\flags\16\tn.png" />
+    <Resource Include="res\flags\16\to.png" />
+    <Resource Include="res\flags\16\tr.png" />
+    <Resource Include="res\flags\16\tt.png" />
+    <Resource Include="res\flags\16\tv.png" />
+    <Resource Include="res\flags\16\tw.png" />
+    <Resource Include="res\flags\16\tz.png" />
+    <Resource Include="res\flags\16\ua.png" />
+    <Resource Include="res\flags\16\ug.png" />
+    <Resource Include="res\flags\16\unk.png" />
+    <Resource Include="res\flags\16\us.png" />
+    <Resource Include="res\flags\16\uy.png" />
+    <Resource Include="res\flags\16\uz.png" />
+    <Resource Include="res\flags\16\va.png" />
+    <Resource Include="res\flags\16\vc.png" />
+    <Resource Include="res\flags\16\ve.png" />
+    <Resource Include="res\flags\16\vg.png" />
+    <Resource Include="res\flags\16\vi.png" />
+    <Resource Include="res\flags\16\vn.png" />
+    <Resource Include="res\flags\16\vu.png" />
+    <Resource Include="res\flags\16\ws.png" />
+    <Resource Include="res\flags\16\ye.png" />
+    <Resource Include="res\flags\16\za.png" />
+    <Resource Include="res\flags\16\zm.png" />
+    <Resource Include="res\flags\16\zw.png" />
+    <Resource Include="res\flags\24\ad.png" />
+    <Resource Include="res\flags\24\ae.png" />
+    <Resource Include="res\flags\24\af.png" />
+    <Resource Include="res\flags\24\ag.png" />
+    <Resource Include="res\flags\24\ai.png" />
+    <Resource Include="res\flags\24\al.png" />
+    <Resource Include="res\flags\24\am.png" />
+    <Resource Include="res\flags\24\an.png" />
+    <Resource Include="res\flags\24\ao.png" />
+    <Resource Include="res\flags\24\aq.png" />
+    <Resource Include="res\flags\24\ar.png" />
+    <Resource Include="res\flags\24\as.png" />
+    <Resource Include="res\flags\24\at.png" />
+    <Resource Include="res\flags\24\au.png" />
+    <Resource Include="res\flags\24\aw.png" />
+    <Resource Include="res\flags\24\az.png" />
+    <Resource Include="res\flags\24\ba.png" />
+    <Resource Include="res\flags\24\bb.png" />
+    <Resource Include="res\flags\24\bd.png" />
+    <Resource Include="res\flags\24\be.png" />
+    <Resource Include="res\flags\24\bf.png" />
+    <Resource Include="res\flags\24\bg.png" />
+    <Resource Include="res\flags\24\bh.png" />
+    <Resource Include="res\flags\24\bi.png" />
+    <Resource Include="res\flags\24\bj.png" />
+    <Resource Include="res\flags\24\bm.png" />
+    <Resource Include="res\flags\24\bn.png" />
+    <Resource Include="res\flags\24\bo.png" />
+    <Resource Include="res\flags\24\br.png" />
+    <Resource Include="res\flags\24\bs.png" />
+    <Resource Include="res\flags\24\bt.png" />
+    <Resource Include="res\flags\24\bw.png" />
+    <Resource Include="res\flags\24\by.png" />
+    <Resource Include="res\flags\24\bz.png" />
+    <Resource Include="res\flags\24\ca.png" />
+    <Resource Include="res\flags\24\cd.png" />
+    <Resource Include="res\flags\24\cf.png" />
+    <Resource Include="res\flags\24\cg.png" />
+    <Resource Include="res\flags\24\ch.png" />
+    <Resource Include="res\flags\24\chs.png" />
+    <Resource Include="res\flags\24\cht.png" />
+    <Resource Include="res\flags\24\ci.png" />
+    <Resource Include="res\flags\24\ck.png" />
+    <Resource Include="res\flags\24\cl.png" />
+    <Resource Include="res\flags\24\cm.png" />
+    <Resource Include="res\flags\24\cn.png" />
+    <Resource Include="res\flags\24\co.png" />
+    <Resource Include="res\flags\24\cr.png" />
+    <Resource Include="res\flags\24\cu.png" />
+    <Resource Include="res\flags\24\cv.png" />
+    <Resource Include="res\flags\24\cy.png" />
+    <Resource Include="res\flags\24\cz.png" />
+    <Resource Include="res\flags\24\de.png" />
+    <Resource Include="res\flags\24\dj.png" />
+    <Resource Include="res\flags\24\dk.png" />
+    <Resource Include="res\flags\24\dm.png" />
+    <Resource Include="res\flags\24\do.png" />
+    <Resource Include="res\flags\24\dz.png" />
+    <Resource Include="res\flags\24\ec.png" />
+    <Resource Include="res\flags\24\ee.png" />
+    <Resource Include="res\flags\24\eg.png" />
+    <Resource Include="res\flags\24\eh.png" />
+    <Resource Include="res\flags\24\er.png" />
+    <Resource Include="res\flags\24\es.png" />
+    <Resource Include="res\flags\24\et.png" />
+    <Resource Include="res\flags\24\fi.png" />
+    <Resource Include="res\flags\24\fj.png" />
+    <Resource Include="res\flags\24\fm.png" />
+    <Resource Include="res\flags\24\fo.png" />
+    <Resource Include="res\flags\24\fr.png" />
+    <Resource Include="res\flags\24\ga.png" />
+    <Resource Include="res\flags\24\gb.png" />
+    <Resource Include="res\flags\24\gd.png" />
+    <Resource Include="res\flags\24\ge.png" />
+    <Resource Include="res\flags\24\gg.png" />
+    <Resource Include="res\flags\24\gh.png" />
+    <Resource Include="res\flags\24\gi.png" />
+    <Resource Include="res\flags\24\gl.png" />
+    <Resource Include="res\flags\24\gm.png" />
+    <Resource Include="res\flags\24\gn.png" />
+    <Resource Include="res\flags\24\gp.png" />
+    <Resource Include="res\flags\24\gq.png" />
+    <Resource Include="res\flags\24\gr.png" />
+    <Resource Include="res\flags\24\gt.png" />
+    <Resource Include="res\flags\24\gu.png" />
+    <Resource Include="res\flags\24\gw.png" />
+    <Resource Include="res\flags\24\gy.png" />
+    <Resource Include="res\flags\24\hk.png" />
+    <Resource Include="res\flags\24\hn.png" />
+    <Resource Include="res\flags\24\hr.png" />
+    <Resource Include="res\flags\24\ht.png" />
+    <Resource Include="res\flags\24\hu.png" />
+    <Resource Include="res\flags\24\id.png" />
+    <Resource Include="res\flags\24\ie.png" />
+    <Resource Include="res\flags\24\il.png" />
+    <Resource Include="res\flags\24\im.png" />
+    <Resource Include="res\flags\24\in.png" />
+    <Resource Include="res\flags\24\iq.png" />
+    <Resource Include="res\flags\24\ir.png" />
+    <Resource Include="res\flags\24\is.png" />
+    <Resource Include="res\flags\24\it.png" />
+    <Resource Include="res\flags\24\je.png" />
+    <Resource Include="res\flags\24\jm.png" />
+    <Resource Include="res\flags\24\jo.png" />
+    <Resource Include="res\flags\24\jp.png" />
+    <Resource Include="res\flags\24\ke.png" />
+    <Resource Include="res\flags\24\kg.png" />
+    <Resource Include="res\flags\24\kh.png" />
+    <Resource Include="res\flags\24\ki.png" />
+    <Resource Include="res\flags\24\km.png" />
+    <Resource Include="res\flags\24\kn.png" />
+    <Resource Include="res\flags\24\kp.png" />
+    <Resource Include="res\flags\24\kr.png" />
+    <Resource Include="res\flags\24\kw.png" />
+    <Resource Include="res\flags\24\ky.png" />
+    <Resource Include="res\flags\24\kz.png" />
+    <Resource Include="res\flags\24\la.png" />
+    <Resource Include="res\flags\24\lb.png" />
+    <Resource Include="res\flags\24\lc.png" />
+    <Resource Include="res\flags\24\li.png" />
+    <Resource Include="res\flags\24\lk.png" />
+    <Resource Include="res\flags\24\lr.png" />
+    <Resource Include="res\flags\24\ls.png" />
+    <Resource Include="res\flags\24\lt.png" />
+    <Resource Include="res\flags\24\lu.png" />
+    <Resource Include="res\flags\24\lv.png" />
+    <Resource Include="res\flags\24\ly.png" />
+    <Resource Include="res\flags\24\ma.png" />
+    <Resource Include="res\flags\24\mc.png" />
+    <Resource Include="res\flags\24\md.png" />
+    <Resource Include="res\flags\24\me.png" />
+    <Resource Include="res\flags\24\mg.png" />
+    <Resource Include="res\flags\24\mh.png" />
+    <Resource Include="res\flags\24\mk.png" />
+    <Resource Include="res\flags\24\ml.png" />
+    <Resource Include="res\flags\24\mm.png" />
+    <Resource Include="res\flags\24\mn.png" />
+    <Resource Include="res\flags\24\mo.png" />
+    <Resource Include="res\flags\24\mq.png" />
+    <Resource Include="res\flags\24\mr.png" />
+    <Resource Include="res\flags\24\ms.png" />
+    <Resource Include="res\flags\24\mt.png" />
+    <Resource Include="res\flags\24\mu.png" />
+    <Resource Include="res\flags\24\mv.png" />
+    <Resource Include="res\flags\24\mw.png" />
+    <Resource Include="res\flags\24\mx.png" />
+    <Resource Include="res\flags\24\my.png" />
+    <Resource Include="res\flags\24\mz.png" />
+    <Resource Include="res\flags\24\na.png" />
+    <Resource Include="res\flags\24\nc.png" />
+    <Resource Include="res\flags\24\ne.png" />
+    <Resource Include="res\flags\24\ng.png" />
+    <Resource Include="res\flags\24\ni.png" />
+    <Resource Include="res\flags\24\nl.png" />
+    <Resource Include="res\flags\24\no.png" />
+    <Resource Include="res\flags\24\np.png" />
+    <Resource Include="res\flags\24\nr.png" />
+    <Resource Include="res\flags\24\nz.png" />
+    <Resource Include="res\flags\24\om.png" />
+    <Resource Include="res\flags\24\pa.png" />
+    <Resource Include="res\flags\24\pe.png" />
+    <Resource Include="res\flags\24\pf.png" />
+    <Resource Include="res\flags\24\pg.png" />
+    <Resource Include="res\flags\24\ph.png" />
+    <Resource Include="res\flags\24\pk.png" />
+    <Resource Include="res\flags\24\pl.png" />
+    <Resource Include="res\flags\24\pr.png" />
+    <Resource Include="res\flags\24\ps.png" />
+    <Resource Include="res\flags\24\pt.png" />
+    <Resource Include="res\flags\24\pw.png" />
+    <Resource Include="res\flags\24\py.png" />
+    <Resource Include="res\flags\24\qa.png" />
+    <Resource Include="res\flags\24\re.png" />
+    <Resource Include="res\flags\24\ro.png" />
+    <Resource Include="res\flags\24\rs.png" />
+    <Resource Include="res\flags\24\ru.png" />
+    <Resource Include="res\flags\24\rw.png" />
+    <Resource Include="res\flags\24\sa.png" />
+    <Resource Include="res\flags\24\sb.png" />
+    <Resource Include="res\flags\24\sc.png" />
+    <Resource Include="res\flags\24\sd.png" />
+    <Resource Include="res\flags\24\se.png" />
+    <Resource Include="res\flags\24\sg.png" />
+    <Resource Include="res\flags\24\si.png" />
+    <Resource Include="res\flags\24\sk.png" />
+    <Resource Include="res\flags\24\sl.png" />
+    <Resource Include="res\flags\24\sm.png" />
+    <Resource Include="res\flags\24\sn.png" />
+    <Resource Include="res\flags\24\so.png" />
+    <Resource Include="res\flags\24\sr.png" />
+    <Resource Include="res\flags\24\st.png" />
+    <Resource Include="res\flags\24\sv.png" />
+    <Resource Include="res\flags\24\sy.png" />
+    <Resource Include="res\flags\24\sz.png" />
+    <Resource Include="res\flags\24\tc.png" />
+    <Resource Include="res\flags\24\td.png" />
+    <Resource Include="res\flags\24\tg.png" />
+    <Resource Include="res\flags\24\th.png" />
+    <Resource Include="res\flags\24\tj.png" />
+    <Resource Include="res\flags\24\tl.png" />
+    <Resource Include="res\flags\24\tm.png" />
+    <Resource Include="res\flags\24\tn.png" />
+    <Resource Include="res\flags\24\to.png" />
+    <Resource Include="res\flags\24\tr.png" />
+    <Resource Include="res\flags\24\tt.png" />
+    <Resource Include="res\flags\24\tv.png" />
+    <Resource Include="res\flags\24\tw.png" />
+    <Resource Include="res\flags\24\tz.png" />
+    <Resource Include="res\flags\24\ua.png" />
+    <Resource Include="res\flags\24\ug.png" />
+    <Resource Include="res\flags\24\unk.png" />
+    <Resource Include="res\flags\24\us.png" />
+    <Resource Include="res\flags\24\uy.png" />
+    <Resource Include="res\flags\24\uz.png" />
+    <Resource Include="res\flags\24\va.png" />
+    <Resource Include="res\flags\24\vc.png" />
+    <Resource Include="res\flags\24\ve.png" />
+    <Resource Include="res\flags\24\vg.png" />
+    <Resource Include="res\flags\24\vi.png" />
+    <Resource Include="res\flags\24\vn.png" />
+    <Resource Include="res\flags\24\vu.png" />
+    <Resource Include="res\flags\24\ws.png" />
+    <Resource Include="res\flags\24\ye.png" />
+    <Resource Include="res\flags\24\za.png" />
+    <Resource Include="res\flags\24\zm.png" />
+    <Resource Include="res\flags\24\zw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TranslationApi\TranslationApi.csproj">
+      <Project>{598E4B19-A9FD-4358-86F3-597300AF8DA2}</Project>
+      <Name>TranslationApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+    <Resource Include="bird.ico" />
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

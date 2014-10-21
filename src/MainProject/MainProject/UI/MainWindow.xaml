@@ -1,0 +1,184 @@
+﻿<controls:MetroWindow x:Class="MainProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        xmlns:l="clr-namespace:MainProject" ShowTitleBar="False"                            
+        Height="450" Width="800" WindowStartupLocation="CenterScreen"
+                      Background="#444444">
+    <controls:MetroWindow.GlowBrush>
+        <SolidColorBrush Color="#333333">            
+        </SolidColorBrush>
+    </controls:MetroWindow.GlowBrush>
+    <controls:MetroWindow.Style>
+        <Style TargetType="Window">
+            <Setter Property="Title" Value="{Binding Document.FileName, Converter={StaticResource FileNameFromPathConverter}}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Document}" Value="{x:Null}">
+                    <Setter Property="Title" Value="WPF Localizer"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </controls:MetroWindow.Style>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Frame Grid.Row="1" Name="DocumentFrame" Source="p_StartPage.xaml" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated">
+        </Frame>
+
+        <Border Name="ExpireNotice" Grid.Row="2" Visibility="Collapsed" VerticalAlignment="Bottom" Background="#FFFFFF" Padding="5,2,5,2">            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Black" FontSize="14" TextWrapping="Wrap">This version of Visual 
+                    LocBaml will expire on 15 May, 2014. Please download new 
+                    version from <Hyperlink Click="Hyperlink_Site_Click">http://visuallocbaml.com</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1"  Background="#40FFFFFF">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMessageBoxVisible}" Value="True">
+                            <DataTrigger.Setters>
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger.Setters>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="0.95" Duration="0:0:0.3">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+        </Border>
+
+        <Border Grid.Row="1" VerticalAlignment="Center" Background="#5E5E5E" Padding="20">
+            <Border.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Border.Resources>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMessageBoxVisible}" Value="True">
+                            <DataTrigger.Setters>
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger.Setters>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <StackPanel>
+                <TextBlock Name="MessageBoxText" Margin="10" Text="{Binding MessageBoxText}" TextWrapping="Wrap" MaxWidth="400" Foreground="White" TextAlignment="Center" FontSize="16"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+                    <Button Width="80" Height="28" Margin="5,10,5,10" Click="YesClick" Name="YesButton">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="YesNoCancel">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="YesNo">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        Yes
+                    </Button>
+
+                    <Button Width="80" Height="28" Margin="5,10,5,10" Click="NoClock" Name="NoButton" IsDefault="True">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="YesNoCancel">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="YesNo">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        No
+                    </Button>
+
+                    <Button Width="80" Height="28" Margin="5,10,5,10" Click="OKClick" Name="OKButton" IsDefault="True">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="OK">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="OKCancel">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        OK
+                    </Button>
+
+                    <Button Width="80" Height="28" Margin="5,10,5,10" Click="CancelClick" Name="CancelButton" IsDefault="True">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="YesNoCancel">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MessageBoxButtons}" Value="OKCancel">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        Cancel
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</controls:MetroWindow>

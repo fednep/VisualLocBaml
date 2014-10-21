@@ -1,0 +1,105 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Rectangle Width="10" Height="10" x:Key="PlusRectangle" SnapsToDevicePixels="True">
+        <Rectangle.Fill>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Canvas>
+                        <Path Stretch="Fill" Fill="#444444" 
+                                                      Data="F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z "/>
+                    </Canvas>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Rectangle.Fill>
+    </Rectangle>
+
+    <Rectangle Width="14" Height="14" x:Key="SettingsRectangle" SnapsToDevicePixels="True">
+        <Rectangle.Fill>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Canvas>
+                        <Path Stretch="Fill" Fill="#444444" 
+                                 Data="M31.229,17.736c0.064-0.571,0.104-1.148,0.104-1.736s-0.04-1.166-0.104-1.737l-4.377-1.557c-0.218-0.716-0.504-1.401-0.851-2.05l1.993-4.192c-0.725-0.91-1.549-1.734-2.458-2.459l-4.193,1.994c-0.647-0.347-1.334-0.632-2.049-0.849l-1.558-4.378C17.165,0.708,16.588,0.667,16,0.667s-1.166,0.041-1.737,0.105L12.707,5.15c-0.716,0.217-1.401,0.502-2.05,0.849L6.464,4.005C5.554,4.73,4.73,5.554,4.005,6.464l1.994,4.192c-0.347,0.648-0.632,1.334-0.849,2.05l-4.378,1.557C0.708,14.834,0.667,15.412,0.667,16s0.041,1.165,0.105,1.736l4.378,1.558c0.217,0.715,0.502,1.401,0.849,2.049l-1.994,4.193c0.725,0.909,1.549,1.733,2.459,2.458l4.192-1.993c0.648,0.347,1.334,0.633,2.05,0.851l1.557,4.377c0.571,0.064,1.148,0.104,1.737,0.104c0.588,0,1.165-0.04,1.736-0.104l1.558-4.377c0.715-0.218,1.399-0.504,2.049-0.851l4.193,1.993c0.909-0.725,1.733-1.549,2.458-2.458l-1.993-4.193c0.347-0.647,0.633-1.334,0.851-2.049L31.229,17.736zM16,20.871c-2.69,0-4.872-2.182-4.872-4.871c0-2.69,2.182-4.872,4.872-4.872c2.689,0,4.871,2.182,4.871,4.872C20.871,18.689,18.689,20.871,16,20.871z"/>
+                    </Canvas>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Rectangle.Fill>
+    </Rectangle>    
+
+    <Rectangle Width="13" Height="13" x:Key="CrossRectangle" SnapsToDevicePixels="True">
+        <Rectangle.Fill>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Canvas>
+                        <Path Stretch="Fill" Fill="#444444" 
+                                                      Data="F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z ">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="45"/>                                    
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Rectangle.Fill>
+    </Rectangle>
+
+    <Rectangle Width="14" Height="14" Margin="3,0,0,0" x:Key="ExportRectangle" SnapsToDevicePixels="True">
+        <Rectangle.Fill>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Canvas>
+                        <Path Data="M226,288 L254,288 254,356 C254,356 254,367 245,369 235,370 26,369 26,369 26,369 15.5,369 14,355.49971 12.5,341.99977 14,31.501094 14,31.501094 14,31.501094 14.500331,17.001157 28.500312,17.501154 42.500293,18.001152 241.50002,18.001511 241.50002,18.001511 241.50002,18.001511 254,20.001501 254,30.001448 254,40.001395 254.5,98.001089&#xD;&#xA;254.5,98.001089 L226.50004,98.501086 226.50004,45.001369 41.500294,45.001369 42.473371,341.49029 226,341 z" 
+                                                      Fill="#444444" HorizontalAlignment="Left" Height="352.68" Margin="13.333,17.487,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="242.167"/>
+                        <Path Data="M297.66667,220.66667 L297.66667,251.16634 C297.66667,251.16634 296.83299,259.49924 308.83299,259.83257 320.83299,260.1659 379.17131,198.49972 379.17131,198.49972 379.17131,198.49972 384.57994,194.47007 379.57921,188.80385 376.47558,185.28719 361.16932,170.1666 335.16797,146.74967 320.09528,133.17514 314.92074,130.39953 311.24156,128.63699 307.56238,126.87445 299.52004,125.60463 298.16593,132.58318 296.81182,139.56172 297.74924,166.24981 297.74924,166.24981 L150.1581,173.16648 C150.1581,173.16648 141.05037,175.14929 141.99153,194.83318 142.90796,213.99987 150.8258,215.83319 150.8258,215.83319 165.15988,216.16653 297.66667,220.66667 297.66667,220.66667 z" 
+                                                      Fill="#444444" HorizontalAlignment="Left" Height="133.581" Margin="141.932,125.252,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="240.765"/>
+                    </Canvas>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Rectangle.Fill>
+    </Rectangle>
+
+    <Rectangle Width="14" Height="14" Margin="3,0,0,0" x:Key="ImportRectangle" SnapsToDevicePixels="True">
+        <Rectangle.Fill>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Canvas>
+                        <Path Data="M226,288 L254,288 254,356 C254,356 254,367 245,369 235,370 26,369 26,369 26,369 15.5,369 14,355.49971 12.5,341.99977 14,31.501094 14,31.501094 14,31.501094 14.500331,17.001157 28.500312,17.501154 42.500293,18.001152 241.50002,18.001511 241.50002,18.001511 241.50002,18.001511 254,20.001501 254,30.001448 254,40.001395 254.5,98.001089&#xD;&#xA;254.5,98.001089 L226.50004,98.501086 226.50004,45.001369 41.500294,45.001369 42.473371,341.49029 226,341 z" 
+                                                      Fill="#444444" HorizontalAlignment="Left" Height="352.68" Margin="13.333,17.487,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="242.167"/>
+                        <Path Data="M297.66667,220.66667 L297.66667,251.16634 C297.66667,251.16634 296.83299,259.49924 308.83299,259.83257 320.83299,260.1659 379.17131,198.49972 379.17131,198.49972 379.17131,198.49972 384.57994,194.47007 379.57921,188.80385 376.47558,185.28719 361.16932,170.1666 335.16797,146.74967 320.09528,133.17514 314.92074,130.39953 311.24156,128.63699 307.56238,126.87445 299.52004,125.60463 298.16593,132.58318 296.81182,139.56172 297.74924,166.24981 297.74924,166.24981 L150.1581,173.16648 C150.1581,173.16648 141.05037,175.14929 141.99153,194.83318 142.90796,213.99987 150.8258,215.83319 150.8258,215.83319 165.15988,216.16653 297.66667,220.66667 297.66667,220.66667 z" 
+                                                      Fill="#444444" HorizontalAlignment="Left" Height="133.581" Margin="109.765,125.252,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="245.167" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="-1"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Rectangle.Fill>
+    </Rectangle>
+
+    <Rectangle Width="14" Height="14" Margin="0,0,0,0" x:Key="FilterIconRectangle" SnapsToDevicePixels="True">
+        <Rectangle.Fill>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Canvas>
+                        <Path Data="M26.834,6.958c0-2.094-4.852-3.791-10.834-3.791c-5.983,0-10.833,1.697-10.833,3.791c0,0.429,0.213,0.84,0.588,1.224l8.662,15.002v4.899c0,0.414,0.709,0.75,1.583,0.75c0.875,0,1.584-0.336,1.584-0.75v-4.816l8.715-15.093h-0.045C26.625,7.792,26.834,7.384,26.834,6.958zM16,9.75c-6.363,0-9.833-1.845-9.833-2.792S9.637,4.167,16,4.167c6.363,0,9.834,1.844,9.834,2.791S22.363,9.75,16,9.75z" 
+                              Fill="#444444" HorizontalAlignment="Left" Height="352.68" Margin="13.333,17.487,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="242.167"/>
+                    </Canvas>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Rectangle.Fill>
+    </Rectangle>
+
+    <VisualBrush x:Key="CancelVisualBrush">
+        <VisualBrush.Visual>
+            <Canvas>
+                <Ellipse Fill="#444444" HorizontalAlignment="Left" Height="250" Margin="18.667,18.004,0,0" Stroke="Black" VerticalAlignment="Top" Width="250"/>
+                <Path Data="M121,143 L84.166667,179.83333 C91.388953,187.05562 98.61124,194.2779 105.83353,201.50019 118.11136,189.22243 130.3892,176.94467 142.66703,164.6669 L180.8337,202.83344 203.0006,180.66661 165.3338,142.99983 203.66735,104.6662 181.16689,82.165585 143.3335,119.99933 105.66646,82.331924 83.999663,103.99892 z" Fill="White" HorizontalAlignment="Left" Height="121.666" Margin="84,82.167,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="120.667"/>
+            </Canvas>
+        </VisualBrush.Visual>
+    </VisualBrush>
+</ResourceDictionary>

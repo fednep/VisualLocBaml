@@ -1,0 +1,126 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.AvailableAssemblies" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" x:Class="MainProject.wnd_SetupPathAndAssemblies"
+        Title="Path and Assemblies" 
+        Height="430" Width="562" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" 
+        d:DataContext="{d:DesignData /SampleData/AvailableAssemblies/AvailableAssemblies.xaml}">
+    <Window.Resources>
+    	<SampleData:AvailableAssemblies x:Key="AvailableAssemblies" d:IsDataSource="True"/>
+        <DataTemplate x:Key="LocalizedAssemblyTemplate">
+        	<CheckBox Content="{Binding Assembly.AssemblyFile}" IsChecked="{Binding IsSelected}" Margin="4,2,8,2">
+        		<CheckBox.Style>
+        			<Style TargetType="CheckBox">
+        				<Style.Triggers>
+        					<DataTrigger  Binding="{Binding IsMissing}" Value="True">
+        						<Setter Property="Foreground" Value="#990000" />								
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</CheckBox.Style>
+			</CheckBox>
+        </DataTemplate>
+    </Window.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />             
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+        
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<TextBlock Style="{DynamicResource Header}" Margin="15" TextAlignment="Right"><Run Text="Path to Binaries:"/></TextBlock>
+
+		<StackPanel Grid.Column="1" Margin="0,10,10,10">
+			<TextBlock Margin="0,12,0,2" TextWrapping="Wrap" Text="{Binding PathToBinaries}"/>
+			<TextBlock Margin="0,0,0,10"><Hyperlink Click="ChangePath_Click"><Run Text="Change"/></Hyperlink></TextBlock>
+		</StackPanel>
+
+		<Border Background="#F0F0F0" Grid.Row="1" Grid.Column="0" Padding="15">
+			<TextBlock TextAlignment="Right" Style="{DynamicResource Header}"><Run Text="Language:"/></TextBlock>
+		</Border>
+
+		<Border Background="#F0F0F0" Grid.Row="1" Grid.Column="1">
+			<TextBlock FontWeight="Bold" Text="{Binding DefaultCulture}" VerticalAlignment="Center" Margin="0,3,0,0"/>
+		</Border>
+
+		<StackPanel Grid.Row="2" Margin="15">
+			<TextBlock Style="{DynamicResource Header}" TextWrapping="Wrap" TextAlignment="Right"><Run Text="Found Localizable"/><LineBreak/><Run Text="Assemblies:"/><LineBreak/></TextBlock>
+			<TextBlock TextWrapping="Wrap" TextAlignment="Right" Foreground="#333333"><Run Text="Check which assemblies"/><LineBreak/><Run Text="you want to localize"/></TextBlock>
+		</StackPanel>
+        
+		<ListBox Grid.Row="2" Grid.Column="1" Margin="0,18,0,0" 
+			ItemsSource="{Binding AvailableAssemblies}"
+			BorderThickness="0"                 
+			ItemTemplate="{DynamicResource LocalizedAssemblyTemplate}" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+			<ListBox.Resources>
+				<Style TargetType="{x:Type ListBox}">
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding AvailableAssemblies.Count}" Value="0">
+							<Setter Property="Visibility" Value="Collapsed"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</ListBox.Resources>
+			<ListBox.ItemContainerStyle>
+				<StaticResource ResourceKey="SimpleListBoxStyle"/>
+			</ListBox.ItemContainerStyle>
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel Orientation="Vertical" VerticalAlignment="Top" Height="150" />
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+		</ListBox>
+
+		<StackPanel Grid.Row="2" Grid.Column="1" Margin="0,18,10,0" >
+			<StackPanel.Style>
+				<Style TargetType="{x:Type StackPanel}">
+					<Setter Property="Visibility" Value="Collapsed" />
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding AvailableAssemblies.Count}" Value="0">
+							<Setter Property="Visibility" Value="Visible"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</StackPanel.Style>
+            
+			<TextBlock FontWeight="Bold" Foreground="#990000"><Run Text="No localizable assemblies found"/></TextBlock>
+            
+			<TextBlock TextWrapping="Wrap"><Run Text="It seems you selected wrong path or your assemblies were not built localizable."/></TextBlock>
+
+			<TextBlock Margin="0,10,0,0" TextWrapping="Wrap"><Run Text="Short instruction how to build localizable assemblies can be found here:"/><LineBreak/><Hyperlink Click="Hyperlink_Click"><Run Text="http://wpflocalizer.com/guide/localizableassemblies/"/></Hyperlink></TextBlock>
+
+		</StackPanel>
+
+
+		<Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="0,1,0,0" SnapsToDevicePixels="True" BorderBrush="#888888" Background="#E8E8E8" Padding="10">
+			<StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0">
+				<Button Width="70" IsDefault="True" Click="Button_Click" Height="23" Margin="0,0,8,0" Content="OK">
+					<Button.Style>
+						<Style TargetType="{x:Type Button}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding AvailableAssemblies.Count}" Value="0">
+									<Setter Property="IsEnabled" Value="False"/>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding AvailableAssemblies.SelectedAssembliesCount}" Value="0">
+									<Setter Property="IsEnabled" Value="False"/>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Button.Style>
+				</Button>
+				<Button Width="70" IsCancel="True" Height="23" Content="Cancel"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+</Window>

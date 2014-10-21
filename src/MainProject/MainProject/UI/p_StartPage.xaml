@@ -1,0 +1,142 @@
+﻿<Page x:Class="MainProject.p_StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:l="clr-namespace:MainProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="700"
+      Background="#444444"      
+	Title="p_StartPage">
+    <Page.Resources>
+        <DataTemplate DataType="{x:Type l:RecentProject}">
+            <l:MetroButton Margin="2.5" Padding="10,5,10,5" 
+                                           Background="#888888"
+                                           Foreground="White"
+                                           Command="{x:Static l:Commands.Open}" 
+                                           CommandParameter="{Binding }" MaxWidth="300">
+                <l:MetroButton.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{x:Static l:Commands.RemoveRecent}" 
+                                  CommandParameter="{Binding}" Header="Do not show in recents"
+                                  CommandTarget="{Binding Path=PlacementTarget, 
+                                    RelativeSource={RelativeSource FindAncestor, 
+                                    AncestorType={x:Type ContextMenu}}}"/>
+                    </ContextMenu>
+                </l:MetroButton.ContextMenu>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{Binding ProjectFile, Converter={StaticResource FileNameFromPathConverter}}"/>
+                    <TextBlock Foreground="#DDDDDD" TextTrimming="CharacterEllipsis" Text="{Binding ProjectFile, Converter={StaticResource FileNameFromPathConverter}, ConverterParameter=path}"/>
+                </StackPanel>
+            </l:MetroButton>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type l:RecentProjectMore}">
+            <l:MetroButton Margin="2.5" Padding="10,5,10,5" 
+                                           Background="#ADADAD"
+                                           Foreground="White"
+                                           Command="{x:Static l:Commands.OpenMore}" 
+                                           CommandParameter="{Binding }" MaxWidth="300"
+                                           x:Name="MetroMoreButton">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="More..."/>
+                </StackPanel>
+            </l:MetroButton>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>            
+        </Grid.RowDefinitions>       
+        
+        <Border Width="400" Height="300" Background="#EEEEEE" SnapsToDevicePixels="True" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            
+                <StackPanel Margin="18">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <l:MetroButton Background="#007A9D" Foreground="White" 
+                                       HorizontalContentAlignment="Left" Height="55" 
+                                       VerticalContentAlignment="Top" 
+                                       Padding="10,5,10,5" Margin="0,5,5,5"
+                                       Command="{x:Static l:Commands.New}">
+                            <StackPanel>
+                                <TextBlock FontSize="16">Create new</TextBlock>
+                                <TextBlock FontSize="12" Foreground="#F0F0F0">project</TextBlock>
+                            </StackPanel>
+                        </l:MetroButton>
+
+                        <l:MetroButton Grid.Column="1"
+                                       Background="#00A704" Foreground="White" 
+                                       HorizontalContentAlignment="Left" Height="55" 
+                                       VerticalContentAlignment="Top" 
+                                       Padding="10,5,10,5" Margin="5,5,0,5"
+                                       Command="{x:Static l:Commands.Open}">
+                            <StackPanel>
+                                <TextBlock FontSize="16">Open</TextBlock>
+                                <TextBlock FontSize="12" Foreground="#F0F0F0">existing project...</TextBlock>
+                            </StackPanel>
+                        </l:MetroButton>
+                    </Grid>
+
+                    <TextBlock  FontSize="18" Margin="2,18,2,2">Recent projects</TextBlock>
+                    <TextBlock Margin="2">
+                        <TextBlock.Style>
+                            <Style TargetType="FrameworkElement">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Recents.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    No recent projects</TextBlock>
+
+                <ItemsControl ItemsSource="{Binding Recents}" Margin="-2.5,0,-2.5,0">
+                    <ItemsControl.ContextMenu>
+                        <ContextMenu Name="MorePopup">
+                            <ContextMenu.ItemTemplate>
+                                <DataTemplate>
+                                    <MenuItem Header="{Binding ProjectFile, Converter={StaticResource FileNameFromPathConverter}}" Command="{x:Static l:Commands.Open}" CommandParameter="{Binding }"/>
+                                </DataTemplate>
+                            </ContextMenu.ItemTemplate>
+                        </ContextMenu>
+                    </ItemsControl.ContextMenu>
+                    <ItemsControl.Style>
+                        <Style TargetType="ItemsControl">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Recents.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ItemsControl.Style>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <!--<ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <l:MetroButton Margin="0,4,4,0" Padding="10,5,10,5" 
+                                           Background="#888888"
+                                           Foreground="White"
+                                           Command="{x:Static l:Commands.Open}" 
+                                           CommandParameter="{Binding }" MaxWidth="300">
+                                <StackPanel>
+                                    <TextBlock FontSize="14" Text="{Binding ProjectFile, Converter={StaticResource FileNameFromPathConverter}}"/>
+                                    <TextBlock Foreground="#DDDDDD" TextTrimming="CharacterEllipsis" Text="{Binding ProjectFile, Converter={StaticResource FileNameFromPathConverter}, ConverterParameter=path}"/>
+                                </StackPanel>
+                            </l:MetroButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>-->
+                </ItemsControl>
+            </StackPanel>
+            
+        </Border>
+    </Grid>
+</Page>

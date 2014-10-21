@@ -1,0 +1,72 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:MainProject"    
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="600"
+	x:Class="MainProject.p_EmptyProject"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"    
+	Background="White"
+    FocusManager.FocusedElement="{Binding ElementName=Path}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>         
+
+        <StackPanel Grid.Row="1" Margin="20,15,10,10">
+            <TextBlock Grid.Row="0" Style="{StaticResource Header}"
+                           TextWrapping="Wrap" MaxWidth="400" 
+                           HorizontalAlignment="Left" >Path to Binaries</TextBlock>
+            <TextBlock Margin="0,10,0,5" MaxWidth="700" HorizontalAlignment="Left" TextWrapping="Wrap" 
+                       FontSize="16" Foreground="#444444">To start with translation, please select path where your binaries are located:</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Width="350" FontSize="16" Name="Path"></TextBox>
+                <Button Width="80" Margin="10,0,0,0" Click="Browse" FocusVisualStyle="{x:Null}">Browse</Button>
+            </StackPanel>
+            
+            <!--<l:MetroButton 
+		        Background="#888888" 
+		        HorizontalAlignment="Left" 
+		        Foreground="White"         
+                Margin="0,10,0,10"
+                Height="34"
+		        Click="SelectPathAndAssemblies">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="../res/SettingsWhite.png" VerticalAlignment="Center" Margin="10,5,5,5" Width="14"/>
+                    <TextBlock VerticalAlignment="Center"  FontWeight="Normal" Margin="5,5,10,5" FontSize="14"><Run Text="Select Path and Assemblies"/></TextBlock>
+                </StackPanel>
+            </l:MetroButton>-->          
+            
+            <Button Click="NextClick" HorizontalAlignment="Left" Width="90" Height="30" Margin="0,20,20,20" IsDefault="True">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=Path, Path=Text}" Value="">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                Next</Button>
+        </StackPanel>
+    </Grid>
+
+</Page>

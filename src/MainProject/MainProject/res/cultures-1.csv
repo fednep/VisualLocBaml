@@ -1,0 +1,202 @@
+﻿af,Afrikaans,,ZA
+﻿af-ZA,Afrikaans,South Africa
+sq,Albanian,,AL
+sq-AL,Albanian,Albania
+ar,Arabic,,AE
+ar-DZ,Arabic,Algeria
+ar-BH,Arabic,Bahrain
+ar-EG,Arabic,Egypt
+ar-IQ,Arabic,Iraq
+ar-JO,Arabic,Jordan
+ar-KW,Arabic,Kuwait
+ar-LB,Arabic,Lebanon
+ar-LY,Arabic,Libya
+ar-MA,Arabic,Morocco
+ar-OM,Arabic,Oman
+ar-QA,Arabic,Qatar
+ar-SA,Arabic,Saudi Arabia
+ar-SY,Arabic,Syria
+ar-TN,Arabic,Tunisia
+ar-AE,Arabic,United Arab Emirates
+ar-YE,Arabic,Yemen
+hy,Armenian,,AM
+hy-AM,Armenian,Armenia
+Cy,Azeri (Cyrillic),,AZ
+Cy-az-AZ,Azeri (Cyrillic),Azerbaijan
+Lt,Azeri (Latin),,AZ
+Lt-az-AZ,Azeri (Latin),Azerbaijan
+eu,Basque,,EU
+eu-ES,Basque,Basque
+be,Belarusian,,BY
+be-BY,Belarusian,Belarus
+bg,Bulgarian,,BG
+bg-BG,Bulgarian,Bulgaria
+ca,Catalan,,ES
+ca-ES,Catalan,Catalan
+zh-CN,Chinese,China
+zh-HK,Chinese,Hong Kong
+zh-MO,Chinese,Macau
+zh-SG,Chinese,Singapore
+zh-TW,Chinese,Taiwan
+zh-CHS,Chinese (Simplified),China
+zh-CHT,Chinese (Traditional),China
+hr,Croatian,,HR
+hr-HR,Croatian,Croatia
+cs,Czech,,CZ
+cs-CZ,Czech,Czech Republic
+da,Danish,,DK
+da-DK,Danish,Denmark
+div,Dhivehi,,MV
+div-MV,Dhivehi,Maldives
+nl,Dutch,,NL
+nl-BE,Dutch,Belgium
+nl-NL,Dutch,The Netherlands
+en,English,,US
+en-AU,English,Australia
+en-BZ,English,Belize
+en-CA,English,Canada
+en-CB,English,Caribbean
+en-IE,English,Ireland
+en-JM,English,Jamaica
+en-NZ,English,New Zealand
+en-PH,English,Philippines
+en-ZA,English,South Africa
+en-TT,English,Trinidad and Tobago
+en-GB,English,United Kingdom
+en-US,English,United States
+en-ZW,English,Zimbabwe
+et,Estonian,,EE
+et-EE,Estonian,Estonia
+fo,Faroese,,FO
+fo-FO,Faroese,Faroe Islands
+fa,Farsi,,IR
+fa-IR,Farsi,Iran
+fi,Finnish,,FI
+fi-FI,Finnish,Finland
+fr,French,,FR
+fr-BE,French,Belgium
+fr-CA,French,Canada
+fr-FR,French,France
+fr-LU,French,Luxembourg
+fr-MC,French,Monaco
+fr-CH,French,Switzerland
+gl,Galician,,ES
+gl-ES,Galician,Galician
+ka,Georgian,,GE
+ka-GE,Georgian,Georgia
+de,German,,DE
+de-AT,German,Austria
+de-DE,German,Germany
+de-LI,German,Liechtenstein
+de-LU,German,Luxembourg
+de-CH,German,Switzerland
+el,Greek,,GR
+el-GR,Greek,Greece
+gu,Gujarati,,IN
+gu-IN,Gujarati,India
+he,Hebrew,,IL
+he-IL,Hebrew,Israel
+hi,Hindi,,IN
+hi-IN,Hindi,India
+hu,Hungarian,,HU
+hu-HU,Hungarian,Hungary
+is,Icelandic,,IS
+is-IS,Icelandic,Iceland
+id,Indonesian,,ID
+id-ID,Indonesian,Indonesia
+it,Italian,,IT
+it-IT,Italian,Italy
+it-CH,Italian,Switzerland
+ja,Japanese,,JP
+ja-JP,Japanese,Japan
+kn,Kannada,,IN
+kn-IN,Kannada,India
+kk,Kazakh,,KZ
+kk-KZ,Kazakh,Kazakhstan
+kok,Konkani,,IN
+kok-IN,Konkani,India
+ko,Korean,,KR
+ko-KR,Korean,South Korea
+ky,Kyrgyz,,KZ
+ky-KZ,Kyrgyz,Kazakhstan
+lv,Latvian,,LV
+lv-LV,Latvian,Latvia
+lt,Lithuanian,,LT
+lt-LT,Lithuanian,Lithuania
+ms,Malay,,MY
+ms-BN,Malay,Brunei
+ms-MY,Malay,Malaysia
+mr,Marathi,,IN
+mr-IN,Marathi,India
+mn,Mongolian,,MN
+mn-MN,Mongolian,Mongolia
+nb,Norwegian (Bokmal),,NO
+nb-NO,Norwegian (Bokmal),Norway
+nn,Norwegian (Nynorsk),,NO
+nn-NO,Norwegian (Nynorsk),Norway
+pl,Polish,,PL
+pl-PL,Polish,Poland
+pt,Portuguese,,PT
+pt-BR,Portuguese,Brazil
+pt-PT,Portuguese,Portugal
+pa,Punjabi,,IN
+pa-IN,Punjabi,India
+ro,Romanian,,RO
+ro-RO,Romanian,Romania
+ru,Russian,,RU
+ru-RU,Russian,Russia
+sa,Sanskrit,,IN
+sa-IN,Sanskrit,India
+sr,Serbian (Cyrillic),,SP
+Cy-sr-SP,Serbian (Cyrillic),Serbia
+Lt-sr-SP,Serbian (Latin),Serbia
+sk,Slovak,,SK
+sk-SK,Slovak,Slovakia
+sl,Slovenian,,SI
+sl-SI,Slovenian,Slovenia
+es,Spanish,,ES
+es-AR,Spanish,Argentina
+es-BO,Spanish,Bolivia
+es-CL,Spanish,Chile
+es-CO,Spanish,Colombia
+es-CR,Spanish,Costa Rica
+es-DO,Spanish,Dominican Republic
+es-EC,Spanish,Ecuador
+es-SV,Spanish,El Salvador
+es-GT,Spanish,Guatemala
+es-HN,Spanish,Honduras
+es-MX,Spanish,Mexico
+es-NI,Spanish,Nicaragua
+es-PA,Spanish,Panama
+es-PY,Spanish,Paraguay
+es-PE,Spanish,Peru
+es-PR,Spanish,Puerto Rico
+es-ES,Spanish,Spain
+es-UY,Spanish,Uruguay
+es-VE,Spanish,Venezuela
+sw,Swahili,,KE
+sw-KE,Swahili,Kenya
+sv,Swedish,,FI
+sv-FI,Swedish,Finland
+sv-SE,Swedish,Sweden
+syr,Syriac,,SY
+syr-SY,Syriac,Syria
+ta,Tamil,,IN
+ta-IN,Tamil,India
+tt,Tatar,,RU
+tt-RU,Tatar,Russia
+te,Telugu,,IN
+te-IN,Telugu,India
+th,Thai,,TH
+th-TH,Thai,Thailand
+tr,Turkish,,TR
+tr-TR,Turkish,Turkey
+uk,Ukrainian,,UA
+uk-UA,Ukrainian,Ukraine
+ur,Urdu,,PK
+ur-PK,Urdu,Pakistan
+uz,Uzbek,,UZ
+Cy-uz-UZ,Uzbek (Cyrillic),Uzbekistan
+Lt-uz-UZ,Uzbek (Latin),Uzbekistan
+vi,Vietnamese,,VN
+vi-VN,Vietnamese,Vietnam

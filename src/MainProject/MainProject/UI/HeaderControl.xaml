@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="MainProject.HeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:MainProject"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             x:Name="Header"
+             d:DesignHeight="200" d:DesignWidth="700">
+    <UserControl.Resources>
+
+        <!-- menu brushes -->
+        <SolidColorBrush x:Key="MenuBackgroundBrush" Color="White" />
+        <SolidColorBrush x:Key="ContextMenuBackgroundBrush" Color="#F0F0F0" />
+        <SolidColorBrush x:Key="SubMenuBackgroundBrush" Color="White" />
+
+        <SolidColorBrush x:Key="ContextMenuBorderBrush" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="SubMenuBorderBrush" Color="#F0F0F0" />
+
+        <SolidColorBrush x:Key="MenuItemSelectionFill" Color="#DEDEDE" />
+        <SolidColorBrush x:Key="MenuItemSelectionStroke" Color="#DEDEDE" />
+
+        <SolidColorBrush x:Key="{x:Static SystemColors.MenuTextBrushKey}" Color="Black" />
+
+
+        <SolidColorBrush x:Key="TopMenuItemPressedFill" Color="#DEDEDE" />
+        <SolidColorBrush x:Key="TopMenuItemPressedStroke" Color="#DDDDDD" />
+        <SolidColorBrush x:Key="TopMenuItemSelectionStroke" Color="#90717070" />
+
+        <Style x:Uid="Style_1" x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="Separator">
+            <Setter x:Uid="Setter_1" Property="OverridesDefaultStyle" Value="true" />
+            <Setter x:Uid="Setter_2" Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Uid="ControlTemplate_1" TargetType="{x:Type Separator}">
+                        <!-- <local:PixelSeparator Margin="4" /> -->
+                        <!-- <local:PixelSeparator x:Uid="local:PixelSeparator_1" SnapsToDevicePixels="True" Background="#AAAAAA" Margin="0,4,0,4"/> -->
+                        <Border BorderThickness="0,1,0,0" BorderBrush="#AAAAAA" SnapsToDevicePixels="True" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Border Grid.Row="0" Background="#5B5B5B" Height="80" FocusVisualStyle="{x:Null}" MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{DynamicResource MetroCircleButtonStyle}"
+                        IsEnabled="{Binding IsMenuEnabled, ElementName=Header}"
+                        Command="{x:Static l:Commands.GoBack}"
+                        Height="32" Width="32" 
+                        Foreground="White" Padding="5" 
+                        Margin="20,24,10,24">
+                    <Rectangle Width="12"
+              Height="12">
+                        <Rectangle.Fill>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Canvas>
+                                        <Path Canvas.Left="17.75" Canvas.Top="24" Stretch="Fill" Fill="#A0ffffff" Data="F1 M 57,42L 57,34L 32.25,34L 42.25,24L 31.75,24L 17.75,38L 31.75,52L 42.25,52L 32.25,42L 57,42 Z "/>
+                                    </Canvas>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Button>
+
+                <l:MetroButton Background="#5B5B5B" Height="35" Click="MetroButton_Click" x:Name="ProjectNameButton" IsEnabled="{Binding IsMenuEnabled, ElementName=Header}">
+                    <l:MetroButton.ContextMenu>
+                        <ContextMenu Name="ProjectOptions">
+                            <MenuItem Header="Save As..."
+                                      Command="{x:Static l:Commands.SaveAs}" 
+                                      CommandTarget="{Binding Path=PlacementTarget, 
+                                            RelativeSource={RelativeSource FindAncestor, 
+                                            AncestorType={x:Type ContextMenu}}}" />
+                            
+                            <Separator />
+                            
+                            <MenuItem Header="Close" Command="{x:Static l:Commands.Close}" 
+                                      CommandTarget="{Binding Path=PlacementTarget, 
+                                            RelativeSource={RelativeSource FindAncestor, 
+                                            AncestorType={x:Type ContextMenu}}}"/>
+                        </ContextMenu>
+                    </l:MetroButton.ContextMenu>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontFamily="Segoe UI Light" FontSize="24" VerticalAlignment="Center" Foreground="#EEEEEE" 
+                               Text="{Binding FileName, Converter={StaticResource FileNameFromPathConverter}}"></TextBlock>
+
+                        <TextBlock FontFamily="Segoe UI Light" Margin="10,0,0,0" FontSize="24" VerticalAlignment="Center" Foreground="#EEEEEE" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.5"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform Y="4"/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>&gt;</TextBlock>
+                    </StackPanel>
+                </l:MetroButton>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding PathToBinaries}" Value="">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <Button Style="{DynamicResource MetroCircleButtonStyle}" 
+                    Height="32" Width="32" Foreground="White" 
+                    Padding="5" Margin="20,0,10,0"
+                    Command="{x:Static l:Commands.OpenBinariesPath}">
+                    <Rectangle Width="12"
+              Height="10">
+                        <Rectangle.Fill>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Canvas>
+                                        <Path Stretch="Fill" Fill="#A0ffffff" Data="F1 M 19,50L 28,34L 63,34L 54,50L 19,50 Z M 19,28.0001L 35,28C 36,25 37.4999,24.0001 37.4999,24.0001L 48.75,24C 49.3023,24 50,24.6977 50,25.25L 50,28L 53.9999,28.0001L 53.9999,32L 27,32L 19,46.4L 19,28.0001 Z "/>
+                                    </Canvas>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Button>
+                <StackPanel Grid.Column="2" Margin="0,0,20,0" VerticalAlignment="Center">                   
+                    <TextBlock FontWeight="500" FontSize="16" Foreground="#EEEEEE">Path to binaries:</TextBlock>
+                    <TextBlock Foreground="#CCCCCC" TextTrimming="CharacterEllipsis" Text="{Binding PathToBinaries}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

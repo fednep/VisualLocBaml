@@ -1,0 +1,201 @@
+﻿af,Afrikaans,,ZA
+﻿af-ZA,Afrikaans,South Africa,ZA
+sq,Albanian,,AL
+sq-AL,Albanian,Albania,AL
+ar,Arabic,,AE
+ar-DZ,Arabic,Algeria,DZ
+ar-BH,Arabic,Bahrain,BH
+ar-EG,Arabic,Egypt,EG
+ar-IQ,Arabic,Iraq,IQ
+ar-JO,Arabic,Jordan,JO
+ar-KW,Arabic,Kuwait,KW
+ar-LB,Arabic,Lebanon,LB
+ar-LY,Arabic,Libya,LY
+ar-MA,Arabic,Morocco,MA
+ar-OM,Arabic,Oman,OM
+ar-QA,Arabic,Qatar,QA
+ar-SA,Arabic,Saudi Arabia,SA
+ar-SY,Arabic,Syria,SY
+ar-TN,Arabic,Tunisia,TN
+ar-AE,Arabic,United Arab Emirates,AE
+ar-YE,Arabic,Yemen,YE
+hy,Armenian,,AM
+hy-AM,Armenian,Armenia,AM
+Az,Azeri,,AZ
+Cy-az-AZ,Azeri (Cyrillic),Azerbaijan,AZ
+Lt-az-AZ,Azeri (Latin),Azerbaijan,AZ
+eu,Basque,,EU
+eu-ES,Basque,Basque,ES
+be,Belarusian,,BY
+be-BY,Belarusian,Belarus,BY
+bg,Bulgarian,,BG
+bg-BG,Bulgarian,Bulgaria,BG
+ca,Catalan,,ES
+ca-ES,Catalan,Catalan,ES
+zh-CN,Chinese,China,CN
+zh-HK,Chinese,Hong Kong,HK
+zh-MO,Chinese,Macau,MO
+zh-SG,Chinese,Singapore,SG
+zh-TW,Chinese,Taiwan,TW
+zh-CHS,Chinese (Simplified),China,CN
+zh-CHT,Chinese (Traditional),China,CN
+hr,Croatian,,HR
+hr-HR,Croatian,Croatia,HR
+cs,Czech,,CZ
+cs-CZ,Czech,Czech Republic,CZ
+da,Danish,,DK
+da-DK,Danish,Denmark,DK
+div,Dhivehi,,MV
+div-MV,Dhivehi,Maldives,MV
+nl,Dutch,,NL
+nl-BE,Dutch,Belgium,BE
+nl-NL,Dutch,The Netherlands,NL
+en,English,,US
+en-AU,English,Australia,AU
+en-BZ,English,Belize,BZ
+en-CA,English,Canada,CA
+en-CB,English,Caribbean,CB
+en-IE,English,Ireland,IE
+en-JM,English,Jamaica,JM
+en-NZ,English,New Zealand,NZ
+en-PH,English,Philippines,PH
+en-ZA,English,South Africa,ZA
+en-TT,English,Trinidad and Tobago,TT
+en-GB,English,United Kingdom,GB
+en-US,English,United States,US
+en-ZW,English,Zimbabwe,ZW
+et,Estonian,,EE
+et-EE,Estonian,Estonia,EE
+fo,Faroese,,FO
+fo-FO,Faroese,Faroe Islands,FO
+fa,Farsi,,IR
+fa-IR,Farsi,Iran,IR
+fi,Finnish,,FI
+fi-FI,Finnish,Finland,FI
+fr,French,,FR
+fr-BE,French,Belgium,BE
+fr-CA,French,Canada,CA
+fr-FR,French,France,FR
+fr-LU,French,Luxembourg,LU
+fr-MC,French,Monaco,MC
+fr-CH,French,Switzerland,CH
+gl,Galician,,ES
+gl-ES,Galician,Galician,ES
+ka,Georgian,,GE
+ka-GE,Georgian,Georgia,GE
+de,German,,DE
+de-AT,German,Austria,AT
+de-DE,German,Germany,DE
+de-LI,German,Liechtenstein,LI
+de-LU,German,Luxembourg,LU
+de-CH,German,Switzerland,CH
+el,Greek,,GR
+el-GR,Greek,Greece,GR
+gu,Gujarati,,IN
+gu-IN,Gujarati,India,IN
+he,Hebrew,,IL
+he-IL,Hebrew,Israel,IL
+hi,Hindi,,IN
+hi-IN,Hindi,India,IN
+hu,Hungarian,,HU
+hu-HU,Hungarian,Hungary,HU
+is,Icelandic,,IS
+is-IS,Icelandic,Iceland,IS
+id,Indonesian,,ID
+id-ID,Indonesian,Indonesia,ID
+it,Italian,,IT
+it-IT,Italian,Italy,IT
+it-CH,Italian,Switzerland,CH
+ja,Japanese,,JP
+ja-JP,Japanese,Japan,JP
+kn,Kannada,,IN
+kn-IN,Kannada,India,IN
+kk,Kazakh,,KZ
+kk-KZ,Kazakh,Kazakhstan,KZ
+kok,Konkani,,IN
+kok-IN,Konkani,India,IN
+ko,Korean,,KR
+ko-KR,Korean,South Korea,KR
+ky,Kyrgyz,,KZ
+ky-KZ,Kyrgyz,Kazakhstan,KZ
+lv,Latvian,,LV
+lv-LV,Latvian,Latvia,LV
+lt,Lithuanian,,LT
+lt-LT,Lithuanian,Lithuania,LT
+ms,Malay,,MY
+ms-BN,Malay,Brunei,BN
+ms-MY,Malay,Malaysia,MY
+mr,Marathi,,IN
+mr-IN,Marathi,India,IN
+mn,Mongolian,,MN
+mn-MN,Mongolian,Mongolia,MN
+nb,Norwegian (Bokmal),,NO
+nb-NO,Norwegian (Bokmal),Norway,NO
+nn,Norwegian (Nynorsk),,NO
+nn-NO,Norwegian (Nynorsk),Norway,NO
+pl,Polish,,PL
+pl-PL,Polish,Poland,PL
+pt,Portuguese,,PT
+pt-BR,Portuguese,Brazil,BR
+pt-PT,Portuguese,Portugal,PT
+pa,Punjabi,,IN
+pa-IN,Punjabi,India,IN
+ro,Romanian,,RO
+ro-RO,Romanian,Romania,RO
+ru,Russian,,RU
+ru-RU,Russian,Russia,RU
+sa,Sanskrit,,IN
+sa-IN,Sanskrit,India,IN
+sr,Serbian (Cyrillic),,SP
+Cy-sr-SP,Serbian (Cyrillic),Serbia,SP
+Lt-sr-SP,Serbian (Latin),Serbia,SP
+sk,Slovak,,SK
+sk-SK,Slovak,Slovakia,SK
+sl,Slovenian,,SI
+sl-SI,Slovenian,Slovenia,SI
+es,Spanish,,ES
+es-AR,Spanish,Argentina,AR
+es-BO,Spanish,Bolivia,BO
+es-CL,Spanish,Chile,CL
+es-CO,Spanish,Colombia,CO
+es-CR,Spanish,Costa Rica,CR
+es-DO,Spanish,Dominican Republic,DO
+es-EC,Spanish,Ecuador,EC
+es-SV,Spanish,El Salvador,SV
+es-GT,Spanish,Guatemala,GT
+es-HN,Spanish,Honduras,HN
+es-MX,Spanish,Mexico,MX
+es-NI,Spanish,Nicaragua,NI
+es-PA,Spanish,Panama,PA
+es-PY,Spanish,Paraguay,PY
+es-PE,Spanish,Peru,PE
+es-PR,Spanish,Puerto Rico,PR
+es-ES,Spanish,Spain,ES
+es-UY,Spanish,Uruguay,UY
+es-VE,Spanish,Venezuela,VE
+sw,Swahili,,KE
+sw-KE,Swahili,Kenya,KE
+sv,Swedish,,FI
+sv-FI,Swedish,Finland,FI
+sv-SE,Swedish,Sweden,SE
+syr,Syriac,,SY
+syr-SY,Syriac,Syria,SY
+ta,Tamil,,IN
+ta-IN,Tamil,India,IN
+tt,Tatar,,RU
+tt-RU,Tatar,Russia,RU
+te,Telugu,,IN
+te-IN,Telugu,India,IN
+th,Thai,,TH
+th-TH,Thai,Thailand,TH
+tr,Turkish,,TR
+tr-TR,Turkish,Turkey,TR
+uk,Ukrainian,,UA
+uk-UA,Ukrainian,Ukraine,UA
+ur,Urdu,,PK
+ur-PK,Urdu,Pakistan,PK
+uz,Uzbek,,UZ
+Cy-uz-UZ,Uzbek (Cyrillic),Uzbekistan,UZ
+Lt-uz-UZ,Uzbek (Latin),Uzbekistan,UZ
+vi,Vietnamese,,VN
+vi-VN,Vietnamese,Vietnam,VN

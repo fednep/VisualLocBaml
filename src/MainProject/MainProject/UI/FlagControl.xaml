@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="MainProject.UI.FlagControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             x:Name="Flag"
+             d:DesignHeight="25" d:DesignWidth="50">
+
+    <Image Source="{Binding ElementName=Flag, Path=ImageFileName}" HorizontalAlignment="Left" VerticalAlignment="Top" UseLayoutRounding="True"               
+               Stretch="Fill"
+               Width="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelWidth}"
+               Height="{Binding RelativeSource={RelativeSource Self}, Path=Source.PixelHeight}"
+               RenderOptions.BitmapScalingMode="HighQuality"
+               RenderOptions.EdgeMode="Aliased"
+           ></Image>
+</UserControl>

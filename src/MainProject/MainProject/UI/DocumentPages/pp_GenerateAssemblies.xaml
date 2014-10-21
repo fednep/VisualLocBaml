@@ -1,0 +1,164 @@
+﻿<Page x:Class="MainProject.UI.DocumentPages.pp_GenerateAssemblies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="clr-namespace:MainProject.UI"
+      xmlns:l="clr-namespace:MainProject"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="700"
+      ui:PageProperties.PageTag="home"
+      ui:PageProperties.EnableMenuItem="true"
+	  Title="pp_LanguagesExport" Background="White">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Icons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <ScrollViewer>
+        <StackPanel>
+            <Border Margin="20" VerticalAlignment="Top" CornerRadius="3" Background="#EEEEEE">
+
+                <Grid Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="400" />
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Style="{StaticResource Header}" FontFamily="Segoe UI Light" FontSize="22">Generate assemblies</TextBlock>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Margin="0,20,0,0" FontSize="16" FontWeight="500">Assemblies will be generate into:</TextBlock>
+                        <TextBlock Margin="0,5,0,0" FontSize="16" TextWrapping="Wrap" Text="{Binding OutputFolder}"></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20,0,0">
+                        <l:MetroButton Width="150" Height="35"  Foreground="White" FontSize="14" Click="Generate">
+                            <l:MetroButton.Style>
+                                <Style TargetType="{x:Type l:MetroButton}">
+                                    <Setter Property="Background" Value="#888888"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=AllCultures, Path=IsChecked}" Value="False">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=AllAssemblies, Path=IsChecked}" Value="False">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Background" Value="#DDDDDD"/>
+                                            <Setter Property="Foreground" Value="#EEEEEE" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </l:MetroButton.Style>
+                            Generate assemblies
+                        </l:MetroButton>
+                        <l:MetroButton Height="30" Margin="20,0,0,0" FontSize="14" Background="Transparent" Foreground="#444444" Click="Cancel">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="18" Height="18" Margin="3,1,3,0"  SnapsToDevicePixels="True" Fill="{StaticResource CancelVisualBrush}"/>
+                                <TextBlock VerticalAlignment="Center">Cancel</TextBlock>
+                            </StackPanel>
+                        </l:MetroButton>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="400"  MinWidth="350"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Row="1" FontSize="18" Margin="20,0,0,0">Cultures</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="2" FontSize="18" Margin="0,0,0,0">Assemblies</TextBlock>
+
+                <StackPanel Grid.Row="2" Grid.Column="2">
+                    <CheckBox Margin="0,10,0,0" FontSize="16" Name="AllAssemblies" Checked="AllAssembliesChecked" Unchecked="AllAssembliesChecked">
+                        <CheckBox.Style>
+                            <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Assemblies.Count}" Value="1">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                        All assemblies
+                    </CheckBox>
+
+                    <ItemsControl Grid.Row="5" ItemsSource="{Binding Assemblies}" UseLayoutRounding="True" Margin="0,10,0,0">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Margin="0,2,2,2"  Checked="AssemblyChecked" Unchecked="AssemblyChecked" 
+                                        IsChecked="{Binding IsSelected}" VerticalAlignment="Top"
+                                        FontSize="14"
+                                        Content="{Binding Assembly.Assembly.AssemblyFile}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Margin="20,0,0,0">
+                    <CheckBox Margin="0,10,0,0" FontSize="16" Name="AllCultures" Checked="AllCulturesChecked" Unchecked="AllCulturesChecked">
+                        <CheckBox.Style>
+                            <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Cultures.Count}" Value="1">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                        All cultures
+                    </CheckBox>
+
+                    <ItemsControl Grid.Row="5" ItemsSource="{Binding Cultures}" UseLayoutRounding="True" Margin="0,10,0,0">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel UseLayoutRounding="True" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <CheckBox Margin="0,2,2,2" Checked="CultureChecked" Unchecked="CultureChecked" IsChecked="{Binding IsSelected}" VerticalAlignment="Top">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ui:FlagControl UseLayoutRounding="True" CultureCode="{Binding Culture.CultureCode}"  VerticalAlignment="Center" Margin="0,0,5,0" />
+                                            <TextBlock Grid.Column="1" Grid.Row="0" FontSize="14" VerticalAlignment="Center" Text="{Binding CultureDescription}" />
+                                        </StackPanel>
+                                    </CheckBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

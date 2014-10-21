@@ -1,0 +1,205 @@
+﻿<Page x:Class="MainProject.UI.p_SetupPathAndAssemblies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="clr-namespace:MainProject.UI"
+      xmlns:l="clr-namespace:MainProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="600"
+	Title="p_SetupPathAndAssembly">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+
+            <Grid Margin="20,20,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.ColumnSpan="3" FontFamily="Segoe UI Light" FontSize="24"><Run Text="Neutral Language"/></TextBlock>
+
+                <StackPanel Grid.Row="1"  Margin="0,10,0,10" Orientation="Horizontal" UseLayoutRounding="True">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DefaultCulture}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <ui:FlagControl CultureCode="{Binding DefaultCulture.CultureCode}" Grid.RowSpan="2" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="16"
+                           Text="{Binding DefaultCulture.Description}"></TextBlock>
+                </StackPanel>
+
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="0,10,0,10" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DefaultCulture}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            Unknown</TextBlock>
+
+
+                <TextBlock Grid.Row="2" FontFamily="Segoe UI Light" FontSize="22" TextWrapping="Wrap" Margin="0,10,0,0">
+            Choose Assemblies to Localize
+                </TextBlock>
+
+                <TextBlock Grid.Row="2" Grid.Column="2" FontFamily="Segoe UI Light" FontSize="22" TextWrapping="Wrap" Margin="0,10,0,0">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding TranslationCultures.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            Import Translation for Cultures
+                </TextBlock>
+
+                <ItemsControl Grid.Row="3" Grid.Column="0" Margin="0,10,0,0" 
+			ItemsSource="{Binding AvailableAssemblies}"
+			BorderThickness="0"                 
+			ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl.Resources>
+                        <Style TargetType="{x:Type ItemsControl}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding AvailableAssemblies.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ItemsControl.Resources>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Assembly.AssemblyFile}" 
+                              IsChecked="{Binding IsSelected}" 
+                              Margin="4,2,8,2" 
+                              UseLayoutRounding="True" 
+                              SnapsToDevicePixels="True" 
+                              FontSize="16">
+                                <CheckBox.Style>
+                                    <Style TargetType="CheckBox" 
+                                   BasedOn="{StaticResource {x:Type CheckBox}}">
+                                        <Style.Triggers>
+                                            <DataTrigger  Binding="{Binding IsMissing}" Value="True">
+                                                <Setter Property="Foreground" Value="#990000" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </CheckBox.Style>
+                            </CheckBox>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel  />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <StackPanel Grid.Row="3" Grid.Column="2">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding TranslationCultures.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <CheckBox Margin="0,20,0,0" FontSize="16" Name="AllCultures" Checked="AllCulturesChecked" Unchecked="AllCulturesChecked">
+                        <CheckBox.Style>
+                            <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TranslationCultures.Count}" Value="1">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                        All cultures
+                    </CheckBox>
+
+                    <ItemsControl Grid.Row="5" ItemsSource="{Binding TranslationCultures}" UseLayoutRounding="True" Margin="0,10,0,0">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel UseLayoutRounding="True" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <CheckBox Margin="0,2,10,2" Checked="CultureChecked" Unchecked="CultureChecked" IsChecked="{Binding IsSelected}" VerticalAlignment="Top">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ui:FlagControl UseLayoutRounding="True" CultureCode="{Binding Culture.CultureCode}"  VerticalAlignment="Center" Margin="0,0,5,0" />
+                                            <TextBlock Grid.Column="1" Grid.Row="0" FontSize="14" VerticalAlignment="Center" Text="{Binding CultureDescription}" />
+                                        </StackPanel>
+                                    </CheckBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <Border Background="#EEEEEE" Grid.Row="1" SnapsToDevicePixels="True">
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4">
+                <Button Width="90" IsDefault="True" Click="NextButton_Click" Height="30" Margin="20,10,8,10" Content="Next" 
+                HorizontalAlignment="Left">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding AvailableAssemblies.Count}" Value="0">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding AvailableAssemblies.SelectedAssembliesCount}" Value="0">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <l:MetroButton Background="#EEEEEE" Foreground="#444444" FontSize="16" Width="80" Height="30" Click="Back">Back</l:MetroButton>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+
+</Page>
