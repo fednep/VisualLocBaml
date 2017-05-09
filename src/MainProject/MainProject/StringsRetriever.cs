@@ -127,7 +127,8 @@ namespace MainProject
 
         public bool LinesFilter(BamlString line)
         {
-            return line.Category != LocalizationCategory.None;
+            return line.Category != LocalizationCategory.None ||
+                   line.ResourceKey.ToLower().Contains("system.string");
         }        
     }
 }
